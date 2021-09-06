@@ -53,7 +53,7 @@ const NavLg = () => {
                 Kanpur
                 <BiChevronDown />
             </span>
-            <button className="bg-red-600 text-white text-sm rounded px-2 py-1">
+            <button className="bg-red-500 text-white text-xs rounded px-4 py-2">
             Sign in
             </button>
             <div className="w-8 h-8 text-white">
