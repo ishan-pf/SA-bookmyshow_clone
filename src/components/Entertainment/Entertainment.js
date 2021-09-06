@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 
-
+import { NextArrowE, PrevArrowE } from "./Entertainment.arrow";
 const EntertainmentCard = (props) => {
 
     return(
@@ -40,9 +40,18 @@ const EntertainmentCardSlider = () => {
         autoplay:false,
         slidesToShow:4,
         slidesToScroll:4,
-        initialSlide:0
-
-
+        initialSlide:0,
+        nextArrow: <NextArrowE />,
+        prevArrow: <PrevArrowE />,
+        responsive: [
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          }
+        ]
       }
 
 

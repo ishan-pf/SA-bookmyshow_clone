@@ -9,8 +9,8 @@ const HomePage = () => {
         <div className="flex flex-col gap-10">
         <div  className="container mx-auto px-4">
 
-        <h1 className="text-2xl font-bold text-gray-800 ">
-            The best of Entertainment
+        <h1 className="text-2xl font-bold text-gray-800 mt-8 mb-2 ml-4 ">
+            The Best of Entertainment
         </h1>
         <EntertainmentCardSlider />
        

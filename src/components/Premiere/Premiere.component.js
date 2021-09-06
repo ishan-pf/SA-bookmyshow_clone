@@ -14,7 +14,16 @@ export const Premiere = () => {
         slidesToScroll: 2,
         InitialSlide: 0,
         nextArrow: <NextArrowP />,
-        prevArrow: <PrevArrowP />
+        prevArrow: <PrevArrowP />,
+        responsive: [
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            }
+          ]
     };
 
     const PremiereImages = [
@@ -91,19 +100,23 @@ export const Premiere = () => {
             title: "Proximity",
             subtitle: "English"
         },
-        
-
-
+        {
+            src: "https://in.bmscdn.com/iedb/movies/images/extra/vertical_logo/mobile/thumbnail/xxlarge/the-tunnel-et00303783-15-07-2021-10-13-08.jpg",
+            alt: "The Tunnel",
+            title: "The Tunnel",
+            subtitle: "Norweigan"
+        },
+ 
     ]
 
 
     return (
     <>
-        <div className="flex flex-col items-start py-4 mx-3">
+        <div className="flex flex-col items-start py-4 mx-20">
         <h3 className="text-white text-xl font-bold">Premiere</h3>
         <p className="text-white text-sm">Brand new release every Friday</p>
         </div>
-        <Slider {...settings} className="mx-10">
+        <Slider {...settings} className="mx-16 mr-4">
         {PremiereImages.map((image)=> (
           <Poster {...image} isDark  />
         ))}
