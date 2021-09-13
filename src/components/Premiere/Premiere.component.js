@@ -3,28 +3,13 @@ import Slider from 'react-slick'
 
 import Poster from "../Poster/poster.component"
 
-import { NextArrowP ,PrevArrowP } from "./arrow.premiere"
+
+
+import  settings from "../../config/Poster.Carousel.js"
 
 export const Premiere = () => {
 
-    const settings= {
-        infinite: true,
-        autoplay: false,
-        slidesToShow: 5,
-        slidesToScroll: 2,
-        InitialSlide: 0,
-        nextArrow: <NextArrowP />,
-        prevArrow: <PrevArrowP />,
-        responsive: [
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-              }
-            }
-          ]
-    };
+    
 
     const PremiereImages = [
 

@@ -25,7 +25,7 @@ const HeroCarousal = () => {
   }
 
   const settings = {
-    arrows: true,
+    arrows: false,
     dots: true,
     infinite: true,
     speed: 500,

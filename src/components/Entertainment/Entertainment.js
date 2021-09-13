@@ -6,7 +6,7 @@ const EntertainmentCard = (props) => {
     return(
 
         <>
-        <div className="w-full h-21 px-2  "> 
+        <div className="w-64 px-0 smd:w-1/2 px-4  "> 
 
         <img className="w-full h-full rounded-xl" 
              src={props.src} 
@@ -39,16 +39,38 @@ const EntertainmentCardSlider = () => {
         infintie:true,
         autoplay:false,
         slidesToShow:4,
+        speed:1200,
+        // centerPadding:"300px",
         slidesToScroll:4,
         initialSlide:0,
         nextArrow: <NextArrowE />,
         prevArrow: <PrevArrowE />,
         responsive: [
           {
-            breakpoint: 480,
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              arrows:false,
+              swipeToSlide: true,
+            }
+          },
+          {
+            breakpoint: 600,
             settings: {
               slidesToShow: 2,
-              slidesToScroll: 2
+              slidesToScroll: 2,
+              arrows:false,
+              swipeToSlide: true,
+            }
+          },
+          {
+            breakpoint: 400,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows:false,
+              swipeToSlide: true,
             }
           }
         ]
@@ -58,7 +80,7 @@ const EntertainmentCardSlider = () => {
       return(
         <>
 
-        <Slider {...settings}>
+        <Slider {...settings} className="lg:mx-36">
         {
 
             EntertainmentImage.map((image) => (
