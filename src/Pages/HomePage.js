@@ -1,8 +1,9 @@
 import React from 'react'
 
 import EntertainmentCardSlider from '../components/Entertainment/Entertainment'
+import PosterSlider from '../components/PosterSlider/PosterSilder.component'
 import Premiere from '../components/Premiere/Premiere.component'
-
+import  PremiereImages from '../components/PosterSlider/PremiereImg';
 const HomePage = () => {
     return (
      <>
@@ -27,6 +28,14 @@ const HomePage = () => {
             </div>
 
         </div>
+
+        <div className="container mx-auto px-4">
+            <PosterSlider
+            images={PremiereImages}
+            title="Outdoor Events"
+            isDark={false}
+            />
+            </div>
     </div>
      </>
     )

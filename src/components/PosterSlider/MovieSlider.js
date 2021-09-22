@@ -1,8 +1,8 @@
-import Poster from '../Poster/poster.component'
+import MoviePoster from '../Poster/Movie.Poster'
 // import settings from "../../config/Poster.Carousal";
 
 import Slider from "react-slick";
-import settings from '../../config/Poster.Carousel';
+import settings from '../../config/castconfig';
 
 const PosterSlider = (props) => {
   return (
@@ -21,7 +21,7 @@ const PosterSlider = (props) => {
     </div>
     <Slider {...settings}>
     {props.images.map((image)=> (
-      <Poster {...image} isDark={props.isDark} />
+      <MoviePoster {...image} isDark={props.isDark}   />
     ))}
     </Slider>
     </>

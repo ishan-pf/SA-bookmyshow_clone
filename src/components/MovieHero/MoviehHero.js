@@ -1,6 +1,28 @@
 import React from 'react'
 import { FaHeart } from "react-icons/fa";
 import { BiChevronRight,BiShareAlt } from "react-icons/bi"
+
+
+const launchRazorPay = () =>{
+
+    let options = {
+
+        key: process.env.REACT_APP_RAZOR_API_KEY ,
+        amount:500*100,
+        currency: "INR",
+        name:"BookMyShow Clone",
+        description: "Movie Purchase On Rental",
+        image: "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+        handler: () => {
+            alert("Payment Done");
+        },
+        theme : {color: "#c4242d"}
+    };
+
+    let razorpay = new window.Razorpay(options);
+    razorpay.open();
+};
+
 function MoviehHero() {
     return (
         <>
@@ -47,7 +69,7 @@ function MoviehHero() {
                        <h3>2h 12m  •  Action,Adventure,Fantasy  •  UA  •  3 Sep, 2021</h3>
                     </div>
 
-                    <button className="bg-red-500 w-1/4 rounded-md font-bold py-4">Book tickets</button>
+                    <button className="bg-red-500 w-1/4 rounded-md font-bold py-4" onClick={launchRazorPay}>Book tickets</button>
 
             </div>
 

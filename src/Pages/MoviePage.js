@@ -3,6 +3,13 @@ import {BiCameraMovie} from "react-icons/bi";
 import MovieNavbar from '../components/Navbar/MovieNavbar'
 import MovieHero from '../components/MovieHero/MoviehHero';
 
+import settings from '../config/castconfig';
+import MovieSlider from '../components/PosterSlider/MovieSlider';
+import castImages  from '../components/PosterSlider/castdata';
+import crewImages  from '../components/PosterSlider/crewData';
+// import crewImages  from '../components/PosterSlider/castdata';
+
+
 const MoviePage = () => {
     return (
      <>
@@ -33,6 +40,33 @@ const MoviePage = () => {
                 </div>
                
             </div>
+                <div className="my-8">
+                    <hr />
+                </div>
+
+                <div className="container mx-auto px-4">
+            <MovieSlider {...settings}
+            images={castImages}
+            title="Cast"
+            isDark={false}
+
+           
+            />
+            </div>
+            <div className="my-8">
+                    <hr />
+                </div>
+
+                <div className="container mx-auto px-4">
+            <MovieSlider {...settings}
+            images={crewImages}
+            title="Crew"
+            isDark={false}
+
+           
+            />
+            </div>
+
         </div>
      </>
     )

@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeroSlider from "react-slick";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
+import axios from "axios";
 import { NextArrow,PrevArrow } from "./Arrows.component";
 
 
 const HeroCarousal = () => {
+
+ const[images, setImages] = useState([]);
+
+
+ useEffect(() => {
+   
+  const requestNowPlayingMovies = async() => {
+    const getImages = await axios.get("/movie/now_playing");
+     setImages(getImages.data.results);
+
+    console.log(getImages);
+  };
+  requestNowPlayingMovies();
+}, []);
+
+
   const settingsLg = {
     arrows: true,
     autoplay: true,
@@ -35,14 +51,14 @@ const HeroCarousal = () => {
     prevArrow: <PrevArrow />
   };
 
-const images =[
-  "https://in.bmscdn.com/promotions/cms/creatives/1630432985528_incinemasthisfriday_shangchiandthelegendofthetenrings_webshowcase_1240x300.jpg",
-  "https://in.bmscdn.com/promotions/cms/creatives/1630492936612_fastandfurious9underthestars_pvrdrive_webshowcase_1240x300.jpg",
-  "https://in.bmscdn.com/promotions/cms/creatives/1630041396807_bellbottomunderthestarspvrdriveinexperience_webshowcase_1240x300.jpg",
-  "https://in.bmscdn.com/promotions/cms/creatives/1629830049996_celebfiecruisewiththestarsrevised_webshowcase_1240x300_24aug.jpg",
-  "https://in.bmscdn.com/promotions/cms/creatives/1630177100306_completecollectionofbacktothefuture_1240x300.jpg",
-  "https://in.bmscdn.com/promotions/cms/creatives/1628591224466_fnbgeneric.jpg"
-]
+// const images =[
+//   "https://in.bmscdn.com/promotions/cms/creatives/1630432985528_incinemasthisfriday_shangchiandthelegendofthetenrings_webshowcase_1240x300.jpg",
+//   "https://in.bmscdn.com/promotions/cms/creatives/1630492936612_fastandfurious9underthestars_pvrdrive_webshowcase_1240x300.jpg",
+//   "https://in.bmscdn.com/promotions/cms/creatives/1630041396807_bellbottomunderthestarspvrdriveinexperience_webshowcase_1240x300.jpg",
+//   "https://in.bmscdn.com/promotions/cms/creatives/1629830049996_celebfiecruisewiththestarsrevised_webshowcase_1240x300_24aug.jpg",
+//   "https://in.bmscdn.com/promotions/cms/creatives/1630177100306_completecollectionofbacktothefuture_1240x300.jpg",
+//   "https://in.bmscdn.com/promotions/cms/creatives/1628591224466_fnbgeneric.jpg"
+// ]
 
   return (
     <>
@@ -51,7 +67,7 @@ const images =[
   {
     images.map((image) => (
       <div className="w-full h-64 md:h-80 py-3 px-1 focus:outline-none">
-      <img src={image} alt="testing" className="w-full h-full rounded-md cursor-pointer"/>
+      <img src = {`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full rounded-md cursor-pointer"/>
       </div>
     ))
   }
@@ -63,7 +79,7 @@ const images =[
   {
     images.map((image) => (
       <div className="w-full h-96 px-2 py-3 focus:outline-none">
-      <img src={image} alt="testing" className="w-full h-full rounded-md cursor-pointer "/>
+      <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full rounded-md cursor-pointer "/>
       </div>
     ))
   }
